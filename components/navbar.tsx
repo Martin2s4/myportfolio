@@ -16,36 +16,64 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md neon-border border-b">
+    <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-white/10">
       <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+        {/* Logo */}
         <Link
           href="/"
-          className="text-2xl font-bold animate-glow text-blue-500"
+          className="text-2xl font-bold text-blue-500 hover:text-cyan-400 transition"
         >
           &lt;Martin /&gt;
         </Link>
 
-        <div className="hidden md:flex gap-8">
+        {/* Desktop Nav */}
+        <div className="hidden md:flex items-center gap-4">
           {navItems.map((item) => (
-            <Link
+            <Button
               key={item.href}
-              href={item.href}
-              className="text-sm hover:text-blue-400 transition-colors duration-300 cursor-pointer"
+              asChild
+              variant="outline"
+              className="
+                relative overflow-hidden border border-cyan-400/40
+                bg-background/30 backdrop-blur
+                hover:text-white
+                transition-all duration-300
+                hover:shadow-[0_0_20px_rgba(34,211,238,0.6)]
+                hover:border-cyan-300
+                group px-4
+              "
             >
-              {item.label}
-            </Link>
+              <Link href={item.href}>
+                <span className="relative z-10">{item.label}</span>
+
+                {/* Neon hover sweep */}
+                <span
+                  className="
+                    absolute inset-0
+                    translate-x-[-100%]
+                    bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent
+                    group-hover:translate-x-[100%]
+                    transition-transform duration-700
+                  "
+                />
+              </Link>
+            </Button>
           ))}
+
+          {/* CTA Button */}
+          <Button
+            variant="outline"
+            className="
+              ml-2 border-cyan-400/40
+              hover:shadow-[0_0_20px_rgba(34,211,238,0.6)]
+            "
+            asChild
+          >
+            <a href="#contact">Get In Touch</a>
+          </Button>
         </div>
 
-        <Button
-          variant="outline"
-          size="sm"
-          className="hidden md:inline-flex neon-border cursor-pointer"
-          asChild
-        >
-          <a href="#contact">Get In Touch</a>
-        </Button>
-
+        {/* Mobile Toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="md:hidden text-2xl"
@@ -54,20 +82,26 @@ export default function Navbar() {
         </button>
       </div>
 
+      {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-background/95 backdrop-blur-md neon-border border-t">
+        <div className="md:hidden bg-background/95 backdrop-blur-md border-t border-white/10">
           <div className="flex flex-col gap-4 p-4">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm hover:text-blue-400 transition-colors"
+                className="text-sm hover:text-cyan-400 transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}
               </Link>
             ))}
-            <Button variant="outline" className="w-full neon-border" asChild>
+
+            <Button
+              variant="outline"
+              className="w-full border-cyan-400/40"
+              asChild
+            >
               <a href="#contact" onClick={() => setIsOpen(false)}>
                 Get In Touch
               </a>
