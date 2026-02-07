@@ -1,26 +1,188 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ----------------------------------------
+   Theme + Variants
+---------------------------------------- */
+
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ----------------------------------------
+   Light Mode (Custom Background + Milk-White Text)
+---------------------------------------- */
+
+:root {
+  --radius: 0.625rem;
+
+  /* Background */
+  --background: oklch(39.782% 0.08261 243.959);
+
+  /* Milk-white text */
+  --foreground: oklch(98% 0.01 0); /* almost pure white */
+  --card: oklch(42% 0.09 243.959);
+  --card-foreground: var(--foreground);
+  --popover: oklch(42% 0.09 243.959);
+  --popover-foreground: var(--foreground);
+
+  --primary: oklch(64% 0.12 243.959);
+  --primary-foreground: var(--foreground);
+
+  --secondary: oklch(60% 0.05 243.959);
+  --secondary-foreground: var(--foreground);
+
+  --muted: oklch(55% 0.03 243.959);
+  --muted-foreground: var(--foreground);
+
+  --accent: oklch(58% 0.08 243.959);
+  --accent-foreground: var(--foreground);
+
+  --border: oklch(45% 0.05 243.959);
+  --input: oklch(45% 0.05 243.959);
+  --ring: oklch(60% 0.1 243.959);
+
+}
+
+/* ----------------------------------------
+   Dark Mode (Comfort Dark + Milk-White Text)
+---------------------------------------- */
+
+.dark {
+  --background: oklch(17% 0.08 243.959);
+  --foreground: oklch(98% 0.01 0); /* milk-white text */
+
+  --card: oklch(22% 0.08 243.959);
+  --card-foreground: var(--foreground);
+
+  --popover: oklch(22% 0.08 243.959);
+  --popover-foreground: var(--foreground);
+
+  --primary: oklch(64% 0.12 243.959);
+  --primary-foreground: var(--foreground);
+
+  --secondary: oklch(28% 0.05 243.959);
+  --secondary-foreground: var(--foreground);
+
+  --muted: oklch(28% 0.04 243.959);
+  --muted-foreground: var(--foreground);
+
+  --accent: oklch(28% 0.08 243.959);
+  --accent-foreground: var(--foreground);
+
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(55% 0.08 243.959);
+}
+
+/* ----------------------------------------
+   Base Styles
+---------------------------------------- */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    cursor: default;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
   }
 }
 
+/* ----------------------------------------
+   Animations (Futuristic)
+---------------------------------------- */
+
+@keyframes gradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-16px); }
+}
+
+@keyframes glow {
+  0%, 100% {
+    text-shadow:
+      0 0 20px rgba(99,102,241,0.4),
+      0 0 40px rgba(99,102,241,0.2);
+  }
+  50% {
+    text-shadow:
+      0 0 30px rgba(99,102,241,0.7),
+      0 0 60px rgba(99,102,241,0.4);
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient 8s ease infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* ----------------------------------------
+   Visual Effects
+---------------------------------------- */
+
+.neon-border {
+  border: 1px solid rgba(99,102,241,0.5);
+  box-shadow:
+    0 0 10px rgba(99,102,241,0.3),
+    inset 0 0 10px rgba(99,102,241,0.15);
+}
+
+.neon-glow {
+  box-shadow:
+    0 0 25px rgba(99,102,241,0.5),
+    0 0 50px rgba(99,102,241,0.25);
+}
+
+.grid-background {
+  background-image:
+    linear-gradient(rgba(99,102,241,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99,102,241,0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  cursor: auto; /* default cursor behavior */
 }
