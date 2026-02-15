@@ -54,14 +54,6 @@ export default function Projects() {
       link: "#",
       github: "#",
     },
-    {
-      title: "ML Model Training Suite",
-      description:
-        "Web-based suite for training and deploying machine learning models without extensive coding knowledge.",
-      tech: ["React", "Python", "TensorFlow", "FastAPI", "PostgreSQL"],
-      link: "#",
-      github: "#",
-    },
   ];
 
   return (
