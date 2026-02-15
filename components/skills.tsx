@@ -8,7 +8,7 @@ export default function Skills() {
   const skillCategories = [
     {
       title: "Frontend",
-      icon: "⚡",
+
       skills: [
         "React",
         "Next.js",
@@ -20,7 +20,7 @@ export default function Skills() {
     },
     {
       title: "Backend",
-      icon: "🔧",
+
       skills: [
         "Node.js",
         "Express",
@@ -28,18 +28,20 @@ export default function Skills() {
         "PostgreSQL",
         "MongoDB",
         "GraphQL",
+        "MySQL",
       ],
     },
     {
       title: "Tools & DevOps",
-      icon: "🛠️",
-      skills: ["Git", "Docker", "AWS", "CI/CD", "Vercel", "Linux"],
+
+      skills: ["Git", "Docker", "AWS", "CI/CD", "Vercel", "Linux", "CRUD"],
     },
     {
       title: "Design & UI/UX",
-      icon: "🎨",
+
       skills: [
         "Figma",
+        "Canva",
         "Responsive Design",
         "Accessibility",
         "Animation",
@@ -90,9 +92,7 @@ export default function Skills() {
                         className="text-4xl"
                         whileHover={{ scale: 1.2, rotate: 10 }}
                         transition={{ duration: 0.3 }}
-                      >
-                        {category.icon}
-                      </motion.span>
+                      ></motion.span>
                       <h3 className="text-2xl font-bold group-hover:text-blue-400 transition-colors">
                         {category.title}
                       </h3>

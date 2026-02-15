@@ -74,7 +74,7 @@ export default function Contact() {
                 <h3 className="text-sm font-semibold text-cyan-400 uppercase tracking-wider">
                   Experience
                 </h3>
-                <p className="text-3xl font-bold text-milk">5+ Years</p>
+                <p className="text-3xl font-bold text-milk">2+ Years</p>
                 <p className="text-milk/70">in Full Stack Development</p>
               </div>
 

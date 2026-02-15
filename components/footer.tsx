@@ -4,6 +4,17 @@ import { Github, Linkedin, Twitter, Mail } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  const today = new Date();
+  const dayName = days[today.getDay()];
 
   return (
     <footer className="border-t neon-border py-12 px-4 bg-background/50 backdrop-blur-md">
@@ -65,7 +76,7 @@ export default function Footer() {
               <li className="flex items-center gap-2">
                 <Github className="w-4 h-4 text-milk/70" />
                 <a
-                  href="https://github.com"
+                  href="https://github.com/Martin2s4"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-blue-400 transition-colors"
@@ -76,7 +87,7 @@ export default function Footer() {
               <li className="flex items-center gap-2">
                 <Linkedin className="w-4 h-4 text-milk/70" />
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/martin-mulinge-993135318?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-blue-400 transition-colors"
@@ -87,7 +98,7 @@ export default function Footer() {
               <li className="flex items-center gap-2">
                 <Twitter className="w-4 h-4 text-milk/70" />
                 <a
-                  href="https://twitter.com"
+                  href="https://x.com/kimemia_tu?t=LLCHhglk5j4jok2avZa2PA&s=08"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-blue-400 transition-colors"
@@ -98,7 +109,7 @@ export default function Footer() {
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-milk/70" />
                 <a
-                  href="mailto:your.email@example.com"
+                  href="mailto:mulingejackson937@gmail.com"
                   className="hover:text-blue-400 transition-colors"
                 >
                   Email
@@ -111,9 +122,8 @@ export default function Footer() {
         <div className="border-t border-blue-500/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-milk/70">
             <p>&copy; {currentYear} Martin Jackson. All rights reserved.</p>
-            <p>
-              Designed & Built with ❤️ using Next.js & Tailwind CSS & Shadcn UI
-            </p>
+
+            <div>Have a great {dayName}</div>
           </div>
         </div>
       </div>

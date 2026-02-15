@@ -19,8 +19,8 @@ export default function Projects() {
         "WebSocket",
         "OpenAI API",
       ],
-      link: "#",
-      github: "#",
+      link: "https://google.com",
+      github: "https://github.com/Martin2S4",
     },
     {
       title: "E-Commerce Analytics Dashboard",
