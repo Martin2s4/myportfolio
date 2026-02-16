@@ -1,6 +1,6 @@
 "use client";
 
-import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { Github, Linkedin, Twitter, Mail, Phone } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -113,6 +113,15 @@ export default function Footer() {
                   className="hover:text-blue-400 transition-colors"
                 >
                   Email
+                </a>
+              </li>
+              <li>
+                <Phone className="w-4 h-4 text-milk/70" />
+                <a
+                  href="tel:+254790998957"
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  Call
                 </a>
               </li>
             </ul>
